@@ -1,5 +1,6 @@
 import { Field, InputType, } from "@nestjs/graphql";
 
 @InputType()
-export class SaleInput { 
+export class SaleInput { }
+
 
