@@ -1,0 +1,59 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserDto {
+  id: ID!
+  email: String!
+  name: String!
+  role: String!
+  createdAt: DateTime!
+  status: String!
+  avatar: String!
+  createByGoogle: Boolean!
+  createByFacebook: Boolean!
+  createByEmail: Boolean!
+  createByTwitter: Boolean!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type ProductDto {
+  id: ID!
+  productName: String!
+  description: String!
+  price: Float!
+  createdAt: DateTime!
+  stock: Float!
+}
+
+type Query {
+  Welcome: String!
+  getUsers: [UserDto!]!
+  products: [ProductDto!]!
+  product(id: String!): ProductDto!
+}
+
+type Mutation {
+  createUser(userInput: UserInput!): UserDto!
+  createProduct(data: ProductInput!): ProductDto!
+}
+
+input UserInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input ProductInput {
+  productName: String!
+  description: String!
+  price: Float!
+  category: String!
+  imageUrl: String!
+  userId: String!
+  stock: Float!
+}
