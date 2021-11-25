@@ -1,6 +1,6 @@
 import { Document } from "mongoose";
 
-export interface Sale extends Document {
+export interface ISale extends Document {
     readonly folio: string;
     readonly products : [{
         readonly product: string;
@@ -9,7 +9,7 @@ export interface Sale extends Document {
     readonly total: number;
     readonly users: [{
         readonly user: string;
-        readonly quantity: number;
+        readonly role: string;
     }];
     readonly date: Date;    
 }

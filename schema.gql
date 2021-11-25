@@ -30,15 +30,26 @@ type ProductDto {
   stock: Float!
 }
 
+type SaleDto {
+  id: ID!
+  folio: String!
+  products: [ProductDto!]!
+  total: Float!
+  createdAt: DateTime!
+  users: [UserDto!]!
+}
+
 type Query {
   Welcome: String!
   getUsers: [UserDto!]!
+  sales: [SaleDto!]!
   products: [ProductDto!]!
   product(id: String!): ProductDto!
 }
 
 type Mutation {
   createUser(userInput: UserInput!): UserDto!
+  createSale(sale: SaleInput!): SaleDto!
   createProduct(data: ProductInput!): ProductDto!
 }
 
@@ -46,6 +57,11 @@ input UserInput {
   name: String!
   email: String!
   password: String!
+}
+
+input SaleInput {
+  folio: String!
+  users: [ID!]!
 }
 
 input ProductInput {
