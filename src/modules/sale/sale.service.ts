@@ -13,7 +13,7 @@ export class SaleService {
         return await createdSale.save();
     }
 
-    async getSales(): Promise<any> {
+    async getSales(): Promise<ISale[]> {
         return await this.saleModel.find().exec();
     }
 

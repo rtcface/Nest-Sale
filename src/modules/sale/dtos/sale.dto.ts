@@ -1,5 +1,4 @@
 import { Field, ID, ObjectType } from "@nestjs/graphql";
-import { GraphQLList } from "graphql";
 import { ProductDto } from '../../product/dtos/product.dto';
 import { UserDto } from '../../user/dtos/user.dto';
 

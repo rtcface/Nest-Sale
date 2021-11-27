@@ -61,7 +61,18 @@ input UserInput {
 
 input SaleInput {
   folio: String!
-  users: [ID!]!
+  products: [ProductSaleDto!]!
+  users: [UserSaleDto!]!
+  total: Float!
+}
+
+input ProductSaleDto {
+  product: String!
+  quantity: Int!
+}
+
+input UserSaleDto {
+  user: String!
 }
 
 input ProductInput {
