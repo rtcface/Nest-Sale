@@ -4,6 +4,7 @@ import { UserModule } from './modules/user/user.module';
 import { SaleModule } from './modules/sale/sale.module';
 import { ProductModule } from './modules/product/product.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AuthModule } from './modules/auth/auth.module';
 
 
 @Module({
@@ -13,6 +14,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     UserModule,
     SaleModule,
     ProductModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
