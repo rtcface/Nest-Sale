@@ -39,6 +39,10 @@ type SaleDto {
   users: [UserDto!]!
 }
 
+type AuthDto {
+  accessToken: String!
+}
+
 type Query {
   Welcome: String!
   getUsers: [UserDto!]!
@@ -51,6 +55,7 @@ type Mutation {
   createUser(userInput: UserInput!): UserDto!
   createSale(sale: SaleInput!): SaleDto!
   createProduct(data: ProductInput!): ProductDto!
+  authUser(userAuth: AuthInput!): AuthDto!
 }
 
 input UserInput {
@@ -83,4 +88,9 @@ input ProductInput {
   imageUrl: String!
   userId: String!
   stock: Float!
+}
+
+input AuthInput {
+  email: String!
+  password: String!
 }
