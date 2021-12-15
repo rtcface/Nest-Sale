@@ -3,17 +3,21 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { authenticate } from 'passport';
 import { AuthService } from './auth.service';
 import { AuthInput } from './inputs/auth.input';
-import { LocalAuthGuard } from './local-auth.guard';
+import { LocalAuthGuard } from './guards/local-auth.guard';
 import { AuthDto } from './dtos/auth.dto';
+import { IUser } from '../user/interfaces/user.interface';
+import { UserDto } from '../user/dtos/user.dto';
 
 
 @Resolver()
 export class AuthResolver {
     constructor( private _authSevice: AuthService ) {}
-    @UseGuards( LocalAuthGuard )
-    @Mutation( () => AuthDto )
-    async authUser( @Args( 'userAuth' ) authInput: AuthInput ) {
-        return this._authSevice.validateUser( authInput );
+
+
+   
+    @Mutation( () => UserDto )
+    async authUser( @Args( 'authInput' ) authInput: AuthInput ) {
+        return await this._authSevice.validateUser( authInput );
     }
 
 }

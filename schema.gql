@@ -14,6 +14,7 @@ type UserDto {
   createByFacebook: Boolean!
   createByEmail: Boolean!
   createByTwitter: Boolean!
+  password: String!
 }
 
 """
@@ -39,10 +40,6 @@ type SaleDto {
   users: [UserDto!]!
 }
 
-type AuthDto {
-  accessToken: String!
-}
-
 type Query {
   Welcome: String!
   getUsers: [UserDto!]!
@@ -55,7 +52,7 @@ type Mutation {
   createUser(userInput: UserInput!): UserDto!
   createSale(sale: SaleInput!): SaleDto!
   createProduct(data: ProductInput!): ProductDto!
-  authUser(userAuth: AuthInput!): AuthDto!
+  authUser(authInput: AuthInput!): UserDto!
 }
 
 input UserInput {

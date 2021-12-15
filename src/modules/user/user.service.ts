@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { IUser } from './interfaces/user.interface';
 import { Model } from 'mongoose';
 import { UserInput } from './inputs/user.input';
+import { AuthInput } from '../auth/inputs/auth.input';
 
 @Injectable()
 export class UserService {
@@ -21,8 +22,9 @@ export class UserService {
         return await this.userModel.findById(id).exec();
     }
 
-    async getUserByEmail(email: string): Promise<IUser> {
-        return await this.userModel.findOne({ email: email }).exec();
+    async getUserByEmail(autInput:AuthInput): Promise<IUser> {
+        console.log("pase por getUserByEmail");
+        return await this.userModel.findOne({ email: autInput.email }).exec();
     }   
 
     

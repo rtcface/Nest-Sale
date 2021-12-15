@@ -34,4 +34,7 @@ export class UserDto {
 
     @Field()
     createByTwitter: boolean;
+
+    @Field()
+    password: string;
 }
