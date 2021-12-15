@@ -52,7 +52,6 @@ type Mutation {
   createUser(userInput: UserInput!): UserDto!
   createSale(sale: SaleInput!): SaleDto!
   createProduct(data: ProductInput!): ProductDto!
-  authUser(authInput: AuthInput!): UserDto!
 }
 
 input UserInput {
@@ -85,9 +84,4 @@ input ProductInput {
   imageUrl: String!
   userId: String!
   stock: Float!
-}
-
-input AuthInput {
-  email: String!
-  password: String!
 }
