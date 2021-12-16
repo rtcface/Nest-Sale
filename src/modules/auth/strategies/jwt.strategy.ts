@@ -4,7 +4,7 @@ import { Strategy, ExtractJwt } from "passport-jwt";
 import { IUser } from "src/modules/user/interfaces/user.interface";
 import { UserService } from "src/modules/user/user.service";
 import { JWT_SECRET_TOKEN } from "src/server.constants";
-import { AuthInput } from "../inputs/auth.input";
+
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {

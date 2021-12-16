@@ -7,6 +7,8 @@ import { IUser } from '../user/interfaces/user.interface';
 import { JwtService } from '@nestjs/jwt';
 import { JWT_SECRET_TOKEN } from 'src/server.constants';
 import { IAuthUser } from './interfaces/auth-user.interface';
+import * as bcrypt from 'bcrypt';
+
 
 
 @Injectable()
@@ -19,13 +21,18 @@ export class AuthService {
        
 
     async validateUser( authInput:AuthInput ): Promise<IUser | null> {
-        //const email02: string = _authInput;
-        console.log('validateUser-'+authInput);
-        const user = await this._userService.getUserByEmail(authInput);
-        console.log(' UserQuery '+user);
-        if (user) {
-            const { ...result } = user;
-            return user;
+      
+        const { email, password } = authInput;
+
+        const user = await this._userService.getUserByEmail(email);
+       
+        if(user && password){
+            const ismatch = await bcrypt.compare(password, user.password);
+            if(ismatch){
+                const { ...result } = user;
+                return user;
+            }
+
         }
         return null;
     }
